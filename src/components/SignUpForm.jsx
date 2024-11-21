@@ -9,10 +9,10 @@ const [error, setError] = useState(null);
   async function handleSubmit(event){
     event.preventDefault();
 
-    // if (!username.length < 8) {
-    //   setError("Username must have at least 8 characters.");
-    //   return;
-    // }
+    if (!username.length < 8) {
+      setError("Username must have at least 8 characters.");
+      return;
+    }
 
     try {
       const response = await fetch("https://fsa-jwt-practice.herokuapp.com/signup", {
@@ -49,6 +49,7 @@ const [error, setError] = useState(null);
   </label>
   <button>Submit</button>
 </form>
+  {error}
   </>
   );
 }
